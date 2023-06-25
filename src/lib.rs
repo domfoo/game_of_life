@@ -1,18 +1,17 @@
-#![allow(unused_imports)]
-#![allow(unused_variables)]
-#![allow(dead_code)]
-
-
 use std::fmt;
 
 /// a Cell canvas
-#[derive(Debug)]
 pub struct Cells(Vec<Vec<CellState>>);
 
 impl Cells {
     /// create a new Cell canvas
     pub fn new(width: usize, height: usize) -> Self {
         Self { 0: vec![vec![CellState::Dead; width]; height] }
+    }
+
+    /// create the new generation on a new canvas
+    pub fn evolve(&self) -> Self {
+        Self::new(40, 20)
     }
 }
 
@@ -29,7 +28,7 @@ impl fmt::Display for Cells {
 }
 
 /// State of a Cell
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 enum CellState {
     Alive,
     Dead
