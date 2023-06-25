@@ -1,3 +1,5 @@
+use game_of_life::Cells;
+
 fn main() {
-    println!("Hello, World!");
+    
 }
